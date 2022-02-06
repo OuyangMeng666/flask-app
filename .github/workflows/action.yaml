@@ -45,12 +45,3 @@ jobs:
           script: |
             cd flask-app
             echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker-compose up -d
-      - name: docker-compose up
-      uses: appleboy/ssh-action@master
-      with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
-      script: |
-        cd flask-app
-        echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker-compose up -d
